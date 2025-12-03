@@ -26,16 +26,16 @@ body {
     grid-template-columns: 1fr [content] minmax(0, 1440px) 1fr;
   }
   h1 {
-    font-weight: 600;
+    font-weight: 400;
     font-size: 38px;
   }
   h2 {
-    font-weight: 600;
+    font-weight: 400;
     font-size: 24px;
   }
   nav {
     li {
-      font-weight: 600;
+      font-weight: 400;
       font-size: 24px;
     }
   }
@@ -45,6 +45,11 @@ body {
   button {
     font-size: 18px;
   }
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr [content] minmax(0, 1440px) 1fr;
 }
 
 .full-bleed {
