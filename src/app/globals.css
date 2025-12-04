@@ -59,3 +59,9 @@ body {
 .content-padding {
   padding-inline: max(1rem, 50% - var(--content-width) / 2);
 }
+
+.footer-img {
+  background-image: url(/assets/bg/footerbg.jpg);
+  background-size: cover;
+  background-position: center;
+}

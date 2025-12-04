@@ -12,6 +12,8 @@ export type FormProps = {
   postUser: (formData: FormData) => Promise<FormState>;
   children?: React.ReactNode;
 };
+import SoMeIcons from "./components/utilityComponents/SoMeIcons";
+import Footer from "./components/utilityComponents/footerComps/Footer";
 
 export default function Home() {
   return (
@@ -22,6 +24,7 @@ export default function Home() {
         <PageTitle></PageTitle>
         <SubscriptionSection></SubscriptionSection>
         <div className="h-[4000px]">hello</div>
+        <Footer />
       </div>
     </div>
   );
