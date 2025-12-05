@@ -23,7 +23,11 @@ type Commentdata = {
 
 type CommentResponse = Commentdata[];
 
-export default async function BlogPostSite({ params }: BlogResponse) {
+export default async function BlogPostSite({
+  params,
+}: {
+  params: { id: number };
+}) {
   const { id } = await params;
   console.log("id = ", id);
 
