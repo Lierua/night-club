@@ -4,7 +4,6 @@ type ErrorState = {
 
 type InputProps<T extends ErrorState> = {
   dataInput: string;
-  type: React.InputHTMLAttributes<HTMLInputElement>["type"];
   placeholder?: string;
   defaultValue?: string | number;
   state?: T;
@@ -13,18 +12,16 @@ type InputProps<T extends ErrorState> = {
 const InputField = <T extends ErrorState>({
   state,
   dataInput,
-  type,
   placeholder,
   defaultValue,
 }: InputProps<T>) => {
   const hasError = state?.error?.[dataInput];
 
   return (
-    <input
-      className={`border-2 mt-auto p-2 pl-5 w-full h-[85px] transition-all ${
+    <textarea
+      className={`border-2 p-6 pl-5 w-full h-[366px] transition-all ${
         hasError ? "border-(--red)" : "border-(--white)"
       }`}
-      type={type}
       name={dataInput}
       placeholder={placeholder}
       defaultValue={defaultValue ?? ""}

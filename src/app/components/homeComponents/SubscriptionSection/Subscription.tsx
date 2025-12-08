@@ -1,6 +1,6 @@
 "use client";
 
-import { useFormState } from "react-dom";
+import { useActionState } from "react";
 import { submitMail, type FormState } from "@/app/action/action";
 import SubscriptionInput from "./SubscriptionInput";
 import Button from "../../utilityComponents/Button";
@@ -14,7 +14,7 @@ const initialState: FormState = {
 };
 
 const Subscription = () => {
-  const [state, formAction] = useFormState(submitMail, initialState);
+  const [state, formAction] = useActionState(submitMail, initialState);
 
   return (
     <div className="w-full justify-center px-[2rem] text-center flex flex-col gap-4">
@@ -30,8 +30,8 @@ const Subscription = () => {
         <Button text="Subscribe" type="submit" />
       </form>
 
-      <Error state={state} stateType="subscriptionMail" />
-      <Success
+      <Error<FormState> state={state} stateType="subscriptionMail" />
+      <Success<FormState>
         state={state}
         text="You have succussfully signed up for our newsletter"
       ></Success>

@@ -10,6 +10,7 @@ import SoMeIcons from "./components/utilityComponents/SoMeIcons";
 import Footer from "./components/utilityComponents/footerComps/Footer";
 
 import { FormState } from "./action/action";
+import BlogPosts from "./components/homeComponents/BlogPostSection/BlogPosts";
 
 export type FormProps = {
   state?: FormState;
@@ -22,7 +23,8 @@ export default function Home() {
       <HomeHero></HomeHero>
       <div className="grid grid-cols-[1fr_[content]_minmax(0,1440px)_1fr] full-bleed [&>*]:col-[content] mt-[-124px] w-full">
         <NavBar page="home" />
-        <PageTitle></PageTitle>
+        <PageTitle text="test"></PageTitle>
+        <BlogPosts></BlogPosts>
         <SubscriptionSection></SubscriptionSection>
         <Footer />
       </div>

@@ -13,13 +13,15 @@ const NavBar = ({ page }: NavBarProps) => {
       className="flex justify-between relative overflow-hidden sticky top-0
     full-bleed content-padding border-b-(--red) border-b-3 border-t-(--red) border-t-3 bg-black/90 h-[124px] [&>*]:my-auto z-20"
     >
-      <Image
-        loading="eager"
-        src={"/assets/Logo.png"}
-        width={228}
-        height={54}
-        alt={"logo"}
-      />
+      <Link href={"/"}>
+        <Image
+          loading="eager"
+          src={"/assets/Logo.png"}
+          width={228}
+          height={54}
+          alt={"logo"}
+        />
+      </Link>
       <ul className="[&>*]:uppercase [&>*]:text-center [&>*]:min-w-[128px] flex gap-8">
         <Link href={"/"}>
           {page === "home" ? (
@@ -42,7 +44,7 @@ const NavBar = ({ page }: NavBarProps) => {
             </li>
           )}
         </Link>
-        <Link href={"/"}>
+        <Link href={"/blogPost"}>
           {page === "blog" ? (
             <li className="text-(--red) flex flex-col items-center">
               blog

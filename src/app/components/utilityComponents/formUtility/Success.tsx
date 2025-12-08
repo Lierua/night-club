@@ -1,11 +1,13 @@
-import { FormState } from "@/app/action/action";
+type SuccessState = {
+  success: boolean;
+};
 
-type SuccessProps = {
-  state?: FormState;
+type SuccessProps<T extends SuccessState> = {
+  state?: T;
   text: string;
 };
 
-const Success = ({ state, text }: SuccessProps) => {
+const Success = <T extends SuccessState>({ state, text }: SuccessProps<T>) => {
   if (!state?.success) return null;
 
   return (
