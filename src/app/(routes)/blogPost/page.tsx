@@ -1,16 +1,8 @@
-import Image from "next/image";
 import NavBar from "@/app/components/utilityComponents/Navbar";
-import Button from "@/app/components/utilityComponents/Button";
-import HomeHero from "@/app/components/homeComponents/HomeHero";
-import TitleText from "@/app/components/utilityComponents/TitleText";
 import PageTitle from "@/app/components/utilityComponents/PageTitle";
-import InputField from "@/app/components/utilityComponents/formUtility/InputField";
-import SubscriptionSection from "@/app/components/homeComponents/SubscriptionSection/SubscriptionSection";
-import SoMeIcons from "@/app/components/utilityComponents/SoMeIcons";
 import Footer from "@/app/components/utilityComponents/footerComps/Footer";
 
 import { FormState } from "@/app/action/action";
-import BlogPosts from "@/app/components/homeComponents/BlogPostSection/BlogPosts";
 import Blogs from "@/app/components/blogComponents/Blogs";
 
 export type FormProps = {
@@ -18,12 +10,17 @@ export type FormProps = {
   postUser: (formData: FormData) => Promise<FormState>;
   children?: React.ReactNode;
 };
-export default function Home() {
+
+interface BlogProps {
+  searchParams: { [key: string]: string | undefined };
+}
+
+export default function Blog({ searchParams }: BlogProps) {
   return (
     <div className="[&>*]:col-[content]">
       <NavBar page="blog" />
       <PageTitle text="Blog"></PageTitle>
-      <Blogs></Blogs>
+      <Blogs searchParams={searchParams}></Blogs>
       <Footer />
     </div>
   );

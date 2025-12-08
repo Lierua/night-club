@@ -1,8 +1,8 @@
 import { Suspense } from "react";
-import TitleText from "@/app/components/utilityComponents/TitleText";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "../utilityComponents/Button";
+import { PaginationWithLinks } from "@/app/components/ui/pagination-with-links";
 
 type BlogPost = {
   id: number;
@@ -12,6 +12,7 @@ type BlogPost = {
   title: string;
   content: string;
   author: string;
+  searchParams: { [key: string]: string | undefined };
 };
 
 type Commentdata = {
@@ -22,30 +23,40 @@ type Commentdata = {
   date: string;
 };
 
+interface BlogProps {
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
 type CommentResponse = Commentdata[];
 type BlogResponse = BlogPost[];
 
-const Blogs = async () => {
+const Blogs = async ({ searchParams }: BlogProps) => {
   return (
     <Suspense>
-      <FetchPosts />
+      <FetchPosts searchParams={searchParams} />
     </Suspense>
   );
 };
 
-const FetchPosts = async () => {
+const FetchPosts = async ({ searchParams }: BlogProps) => {
   "use server";
 
   const url = "http://localhost:4000/blogposts";
   const response = await fetch(url);
-  const posts = (await response.json()) as BlogResponse;
+  const posts = (await response.json()) as BlogPost[];
+
+  const currentPage = parseInt(searchParams.page ?? "1", 10);
+  const pageSize = 3;
+
+  const startIndex = (currentPage - 1) * pageSize;
+  const endIndex = startIndex + pageSize;
 
   const postsWithComments = await Promise.all(
-    posts.map(async (post) => {
+    posts.slice(startIndex, endIndex).map(async (post) => {
       const commentUrl = `http://localhost:4000/blogposts/${post.id}?embed=comments`;
       const commentResponse = await fetch(commentUrl);
       const data = await commentResponse.json();
-      const comments = data.comments as CommentResponse;
+      const comments = data.comments as Commentdata[];
       return {
         ...post,
         commentCount: comments.length,
@@ -53,7 +64,7 @@ const FetchPosts = async () => {
     })
   );
 
-  console.log(postsWithComments);
+  const totalCount = posts.length;
 
   return (
     <div className="grid items-center py-[90px] full-bleed">
@@ -109,7 +120,18 @@ const FetchPosts = async () => {
           </div>
         </div>
       ))}
+
+      {/* Pagination */}
+      <div className="mt-8">
+        <PaginationWithLinks
+          page={currentPage}
+          pageSize={pageSize}
+          totalCount={totalCount}
+          pageSearchParam="page"
+        />
+      </div>
     </div>
   );
 };
+
 export default Blogs;
