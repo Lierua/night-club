@@ -1,30 +1,32 @@
-import Image from "next/image";
+import { z } from "zod";
 import NavBar from "@/app/components/utilityComponents/Navbar";
-import Button from "@/app/components/utilityComponents/Button";
-import HomeHero from "@/app/components/homeComponents/HomeHero";
-import TitleText from "@/app/components/utilityComponents/TitleText";
 import PageTitle from "@/app/components/utilityComponents/PageTitle";
-import InputField from "@/app/components/utilityComponents/formUtility/InputField";
-import SubscriptionSection from "@/app/components/homeComponents/SubscriptionSection/SubscriptionSection";
-import SoMeIcons from "@/app/components/utilityComponents/SoMeIcons";
 import Footer from "@/app/components/utilityComponents/footerComps/Footer";
+import { Suspense } from "react";
 
-import { FormState } from "@/app/action/action";
-import BlogPosts from "@/app/components/homeComponents/BlogPostSection/BlogPosts";
-import Blogs from "@/app/components/blogComponents/Blogs";
+import Blogs from "@/app/components/blogComponents/Blogs"; // KEEP THIS
 
-export type FormProps = {
-  state?: FormState;
-  postUser: (formData: FormData) => Promise<FormState>;
-  children?: React.ReactNode;
-};
-export default function Home() {
+async function BlogsPage({ page }: { page: number }) {
   return (
     <div className="[&>*]:col-[content]">
       <NavBar page="blog" />
-      <PageTitle text="Blog"></PageTitle>
-      <Blogs></Blogs>
+      <PageTitle text="Blog" />
+
+      <Suspense>
+        <Blogs page={page} />
+      </Suspense>
+
       <Footer />
     </div>
   );
+}
+
+export default async function ProductListContainer({
+  searchParams,
+}: {
+  searchParams: { page: number };
+}) {
+  const { page } = await searchParams;
+  console.log(page);
+  return <BlogsPage page={page} />;
 }
