@@ -27,7 +27,6 @@ export default function Home() {
       <HomeHero></HomeHero>
       <div className="grid grid-cols-[1fr_[content]_minmax(0,1440px)_1fr] full-bleed [&>*]:col-[content] mt-[-124px] w-full">
         <NavBar page="home" />
-        <PageTitle text="test"></PageTitle>
         <div className="flex flex-col justify-center items-center w-full h-fit py-[90px] gap-6 ">
           <TitleText text="welcome in nightclub" />
           <WelcomeSec />
