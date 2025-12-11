@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import CarouselOne from "../../utilityComponents/CarouselOne";
 import CardRow from "./EomCardRows";
+import EomCard from "./EomCards";
 
 type Event = {
   id: number;
@@ -43,24 +44,26 @@ const EomData = async () => {
   // Convert all events
   const cards = events.map(toCard);
 
-  // Pair in twos
-  const cardPairs = [];
+  // et for loop, hvor hvert card, plus den der kommer lige efter index, jeg gruppere og pusher dem i array'et slides
+  const slides = [];
   for (let i = 0; i < cards.length; i += 2) {
-    if (cards[i + 1]) {
-      cardPairs.push({ card1: cards[i], card2: cards[i + 1] });
-    }
+    const card1 = cards[i];
+    const card2 = cards[i + 1];
+
+    slides.push({
+      id: i / 2,
+      element: (
+        <div className="grid grid-cols-2 gap-4 w-full">
+          <EomCard title={card1.title} desc={card1.desc} date={card1.date} time={card1.time} location={card1.location} url={card1.assetUrl} />
+          {card2 && <EomCard title={card2.title} desc={card2.desc} date={card2.date} time={card2.time} location={card2.location} url={card2.assetUrl} />}
+        </div>
+      ),
+    });
   }
-
-  // Ensure exactly 3 slides:
-  const slide1 = cardPairs[0] ?? null;
-  const slide2 = cardPairs[1] ?? null;
-  const slide3 = cardPairs[2] ?? null;
-
-  console.log("Events fetched:", events, "Card pairs:", cardPairs);
 
   return (
     <Suspense>
-      <CarouselOne slot1={slide1 ? <CardRow card1={slide1.card1} card2={slide1.card2} /> : <div>No events</div>} slot2={slide2 ? <CardRow card1={slide2.card1} card2={slide2.card2} /> : <div>No events</div>} slot3={slide3 ? <CardRow card1={slide3.card1} card2={slide3.card2} /> : <div>No events</div>} />
+      <CarouselOne slides={slides} />
     </Suspense>
   );
 };

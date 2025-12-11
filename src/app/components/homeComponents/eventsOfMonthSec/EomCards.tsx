@@ -79,51 +79,7 @@ const EomCard = ({ desc, time, location, title, date, url }: CardProps) => {
       </span>
     </motion.div>
 
-    // <div className="grid grid-cols-2 grid-rows-[minmax(0,300px)_0.5fr] gap-4 [&>*]:grid  [&>*]:gap-0 [&>*]:row-span-full [&>*]:grid-rows-subgrid ">
-    //   <motion.div className="[&>*]:col-start-1 ">
-    //     <div>
-    //       <Image src="/assets/bg/footerbg.jpg" alt="event of month" width={400} height={400} className="w-full h-full object-cover" />
-    //     </div>
-    //     <span className="bg-(--red) p-4">
-    //       <ul className="flex flex-nowrap ml-auto gap-4 list-none">
-    //         <li>25 Dec</li>
-    //         <li>10:30 PM </li>
-    //         <li>City Plaza,New York</li>
-    //       </ul>
-    //     </span>
-    //   </motion.div>
-    //   <motion.div className=" overflow-hidden">
-    //     <div className="grid grid-cols-1 grid-rows-1 [&>*]:row-span-full  ">
-    //       <div
-    //         className="
-    //     before:content-[''] before:absolute before:w-[50px] before:h-[150px] before:bg-(--red) before:top-[-40] before:left-[-25] relative before:rotate-45
-    //     grid grid-rows-[1fr_0.75fr] max-h-full
-
-    //     "
-    //       >
-    //         <span className="flex w-full h-full items-center">
-    //           <a className="px-4 py-2 mx-auto text-(--white)" href="#">
-    //             Book Now
-    //           </a>
-    //         </span>
-    //         <span className="flex flex-nowrap flex-row">
-    //           <h2 className="p-4 bg-[var(--background)/0.5]">Night Club</h2>
-    //           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
-    //         </span>
-    //       </div>
-    //       <div>
-    //         <Image src="/assets/bg/footerbg.jpg" alt="event of month" width={400} height={400} className="w-full h-full object-cover" />
-    //       </div>
-    //     </div>
-    //     <span className="bg-(--red) p-4">
-    //       <ul className="flex flex-nowrap ml-auto gap-4 list-none">
-    //         <li>25 Dec</li>
-    //         <li>10:30 PM </li>
-    //         <li>City Plaza,New York</li>
-    //       </ul>
-    //     </span>
-    //   </motion.div>
-    // </div>
+    
   );
 };
 
