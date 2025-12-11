@@ -33,7 +33,7 @@ const CarouselOne = ({ slides, pushStyle }: CarouselProps) => {
           </div>
         ))}
       </div>
-      <div className="w-fit mx-auto [&>*]:aspect-square [&>*]:min-w-4 [&>*]:bg-(--white) [&>*]:hover:scale-105 [&>*]:hover:cursor-pointer transition-all ease-in-out duration-100 gap-5 flex flex-nowrap">
+      <div className="w-fit mx-auto mt-4 [&>*]:aspect-square [&>*]:min-w-4 [&>*]:bg-(--white) [&>*]:hover:scale-105 [&>*]:hover:cursor-pointer transition-all ease-in-out duration-100 gap-5 flex flex-nowrap">
         {slides.map((e, i) => (
           <div key={e.id} onClick={() => handleSlide(i)} className={`w-4 aspect-video ${i === isCurrent ? "bg-(--red)!" : ""}`}></div>
         ))}
