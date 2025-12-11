@@ -28,12 +28,12 @@ const CarouselTwo = ({ slides, pushStyle }: CarouselProps) => {
   };
 
   return (
-    <div className={`items-center h-[400px] md:h-[500px] gap-6 lg:h-[550px] w-full relative ${pushStyle}`}>
+    <div className={`items-center h-[400px] md:h-[500px] gap-6 lg:h-[650px] w-full relative flex flex-col ${pushStyle}`}>
       <div className="w-full h-full relative flex flex-row overflow-hidden ">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`w-full h-full flex items-center 
+            className={`w-full h-full flex flex-5 items-center 
           absolute inset-0 transition-transform duration-500 ${index === isCurrent ? "translate-x-0" : index < isCurrent ? "-translate-x-full" : "translate-x-full"}
           `}
           >
@@ -41,7 +41,7 @@ const CarouselTwo = ({ slides, pushStyle }: CarouselProps) => {
           </div>
         ))}
       </div>
-      <div className="*:border *:p-1 flex flex-row w-fit mt-8 gap-4 mx-auto">
+      <div className="*:border *:p-1 flex flex-1 flex-row w-fit mt-8 gap-4 mx-auto">
         <div onClick={prev} className="flex items-center justify-center  transition-all duration-200 group border(--white) hover:scale-105 hover:border-(--red) ">
           <MdOutlineArrowLeft size={35} className="text(--white) transition-colors  group-hover:text-(--red)" />
         </div>

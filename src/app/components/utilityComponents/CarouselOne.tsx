@@ -20,8 +20,8 @@ const CarouselOne = ({ slides, pushStyle }: CarouselProps) => {
   };
 
   return (
-    <div className={`items-center h-[400px] md:h-[500px] lg:h-[550px] w-full relative ${pushStyle}`}>
-      <div className="w-full h-full relative flex flex-row overflow-hidden ">
+    <div className={`items-center gap-4 h-[400px] md:h-[500px] flex flex-col justify-between lg:h-[650px] w-full relative ${pushStyle}`}>
+      <div className="w-full h-100 relative flex flex-5 flex-row overflow-hidden ">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
@@ -33,17 +33,16 @@ const CarouselOne = ({ slides, pushStyle }: CarouselProps) => {
           </div>
         ))}
       </div>
-      <div className="w-fit mx-auto mt-4 [&>*]:aspect-square [&>*]:min-w-4 [&>*]:bg-(--white) [&>*]:hover:scale-105 [&>*]:hover:cursor-pointer transition-all ease-in-out duration-100 gap-5 flex flex-nowrap">
+      <div className="w-fit mx-auto [&>*]:min-w-4 [&>*]:bg-(--white) [&>*]:hover:scale-105 [&>*]:hover:cursor-pointer transition-all ease-in-out duration-100 gap-5 flex flex-1 items-center  flex-nowrap">
         {slides.map((e, i) => (
-          <div key={e.id} onClick={() => handleSlide(i)} className={`w-4 aspect-video ${i === isCurrent ? "bg-(--red)!" : ""}`}></div>
+          <div key={e.id} onClick={() => handleSlide(i)} className={`w-6 h-6  ${i === isCurrent ? "bg-(--red)! h-5!" : ""}`}></div>
         ))}
       </div>
     </div>
   );
 };
 
-export default CarouselOne ;
-
+export default CarouselOne;
 
 // import { div } from "framer-motion/client";
 // import Image from "next/image";
@@ -72,19 +71,19 @@ export default CarouselOne ;
 //     <div className={`items-center h-[400px] md:h-[500px] lg:h-[550px] w-full gap-8 flex flex-col relative ${pushStyle}`}>
 //       <div className="overflow-hidden w-full  aspect-[2/1] [&>*]:h-full [&>*]:w-full relative ">
 //         <div
-//           className={`absolute inset-0 transition-transform  duration-500 
+//           className={`absolute inset-0 transition-transform  duration-500
 //             ${currentImg === "firstImg" ? "translate-x-0" : "-translate-x-full"} `}
 //         >
 //           {slot1}
 //         </div>
 //         <div
-//           className={`absolute inset-0 transition-transform duration-500  
+//           className={`absolute inset-0 transition-transform duration-500
 //             ${currentImg === "secondImg" ? "translate-x-0" : currentImg === "firstImg" ? "translate-x-full" : "-translate-x-full"}`}
 //         >
 //           {slot2}
 //         </div>
 //         <div
-//           className={`absolute inset-0 transition-transform duration-500  
+//           className={`absolute inset-0 transition-transform duration-500
 //             ${currentImg === "thirdImg" ? "translate-x-0" : "translate-x-full"}`}
 //         >
 //           {slot3}

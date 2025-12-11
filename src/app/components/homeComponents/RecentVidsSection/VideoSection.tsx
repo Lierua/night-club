@@ -19,7 +19,7 @@ const VideoSection = () => {
   ];
 
   return (
-    <div className="flex flex-col h-full my-[30px] py-[90px] gap-6 w-full relative">
+    <div className="flex flex-col h-full py-[90px] gap-6 w-full relative">
       <TitleText text="latest video" />
       <CarouselTwo slides={slides} />
     </div>

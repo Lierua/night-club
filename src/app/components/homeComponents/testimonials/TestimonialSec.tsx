@@ -22,7 +22,7 @@ const TestimonialSec = ({ id, name, content, facebook, twitter, link }: Testimon
         </div>
         <h2>{name}</h2>
       </div>
-      <span className="col-span-full text-center justify-center">
+      <span className="max-w-[1000px] mx-auto text-center justify-center">
         <p>{content}</p>
       </span>
       <div className="w-fit h-fit mx-auto col-start-2 mt-8">

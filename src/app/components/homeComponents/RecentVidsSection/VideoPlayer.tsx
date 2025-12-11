@@ -34,13 +34,13 @@ const VideoPlayer = ({ src }: { src: string }) => {
   };
 
   return (
-    <div className=" w-full z-0 relative">
-      <video src={src} ref={videoRef} playsInline className="w-full h-full object-cover relative z-20 " />
+    <div className=" w-full  aspect-video z-0 relative">
+      <video src={src} ref={videoRef} playsInline className="w-full h-full object-contain relative z-20 " />
 
       {!isPlaying && (
         <div
           onClick={handlePlay}
-          className="absolute z-20 w-[50px] h-[150px] 
+          className="absolute z-20 w-[150px]  
         top-1/2 left-1/2 hover:cursor-pointer opacity-30 group aspect-square"
         >
           <Image src="/assets/icon/Play.svg" alt="play button" fill unoptimized className="opacity-70 group-hover:opacity-100 w-full h-full object-contain" />
