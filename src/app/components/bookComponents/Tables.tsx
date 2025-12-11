@@ -1,6 +1,7 @@
 import Image from "next/image";
+import { Prop } from "@/app/(routes)/book/page";
 
-const Tables = () => {
+const Tables = ({ Date }: Prop) => {
   return (
     <div className="py-[90px] grid grid-cols-5 gap-y-12 font-scale">
       <div className="grid grid-cols-1 grid-rows-1 [&>*]:col-[1/2] [&>*]:row-[1/2] items-center">
@@ -12,7 +13,7 @@ const Tables = () => {
           alt={"logo"}
           className=""
         />
-        <h1 className="w-fit h-fit mx-auto">1</h1>
+        <h1 className={`w-fit h-fit mx-auto ${}`}>1</h1>
       </div>
       <div className="grid grid-cols-1 grid-rows-1 [&>*]:col-[1/2] [&>*]:row-[1/2] items-center">
         <Image

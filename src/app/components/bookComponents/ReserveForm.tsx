@@ -8,6 +8,7 @@ import Button from "../utilityComponents/Button";
 import Success from "../utilityComponents/formUtility/Success";
 import Error from "../utilityComponents/formUtility/Error";
 import { useFormStatus } from "react-dom";
+import { Prop } from "@/app/(routes)/book/page";
 
 const initialState: ReserveFormState = {
   success: false,
@@ -20,8 +21,9 @@ const SubmitReserveBtn = () => {
   return <Button text="Submit" type="submit" pending={pending} />;
 };
 
-const ReserveForm = () => {
+const ReserveForm = ({ Date, setDate }) => {
   const [state, formAction] = useActionState(submitReserve, initialState);
+
   return (
     <form action={formAction} className="flex flex-col gap-6 mb-[90px]">
       <h1 className="uppercase text-(44px) mb-6">Book a table</h1>
@@ -71,7 +73,10 @@ const ReserveForm = () => {
           </div>
         </div>
         <div className="flex gap-6">
-          <div className="flex flex-col gap-2 w-full">
+          <div
+            onClick={() => setDate(dataInput)}
+            className="flex flex-col gap-2 w-full"
+          >
             <Error<ReserveFormState> state={state} stateType="userDate" />
             <InputField<ReserveFormState>
               state={state}
