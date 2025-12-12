@@ -34,7 +34,7 @@ const VideoPlayer = ({ src }: { src: string }) => {
   };
 
   return (
-    <div className=" w-full  aspect-video z-0 relative">
+    <div className=" w-full  aspect-video z-0 relative ">
       <video src={src} ref={videoRef} playsInline className="w-full h-full object-contain relative z-20 " />
 
       {!isPlaying && (

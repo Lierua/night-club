@@ -5,6 +5,7 @@ import { motion, Variants, useInView, useAnimation } from "framer-motion";
 import { ReactNode, useEffect, useRef, useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import Button from "../../utilityComponents/Button";
 
 export interface GalleryItem {
   id: number;
@@ -43,12 +44,16 @@ const GalleryDisplay = ({ gallery }: GalleryProps) => {
 
   const parentVariants: Variants = {
     hidden: {},
-    show: {},
+    show: {
+      transition: {
+        staggerChildren: 0,
+      },
+    },
   };
 
   const childrenVariants: Variants = {
     hidden: { x: "-100%", opacity: 0 },
-    show: { x: 0, opacity: 1, transition: { type: "tween", duration: 0.8, ease: "easeIn" } },
+    show: { x: 0, opacity: 1, transition: { delay: 0.4, duration: 0.8, ease: "easeInOut" } },
   };
 
   /*bento grid controller */
@@ -66,14 +71,40 @@ const GalleryDisplay = ({ gallery }: GalleryProps) => {
               setCurrentIndex(index);
               setOpen(true);
             }}
-            className="flex relative overflow-hidden hover-tag-top hover-border hover-tag-bottom"
+            className="flex flex-col"
           >
-            <Image src={item.url} alt={item.description} fill unoptimized className="object-cover object-center" />
+            <div className="relative flex-2 overflow-hidden hover-tag-top hover-border hover-tag-bottom ">
+              <Image src={item.url} alt={item.description} fill unoptimized className="object-cover object-center" />
+            </div>
           </motion.div>
         ))}
       </motion.div>
 
-      <Lightbox open={open} close={() => setOpen(false)} index={currentIndex} slides={slides} />
+      <Lightbox
+        open={open}
+        close={() => setOpen(false)}
+        index={currentIndex}
+        slides={slides}
+        styles={{ container: { backgroundColor: "rgba(0, 0, 0, 0.9)" }, button: { border: "1px solid white", padding: "5px" }, navigationNext: { right: "15%" }, navigationPrev: { left: "15%" } }}
+        render={{
+          slide: ({ slide }) => (
+            <div className="relative w-[860px] flex flex-col h-full bg-black">
+              <div className="flex w-full flex-2">
+                <img src={slide.src} alt={slide.alt} className="object-contain w-full h-full" />
+              </div>
+              <div className="flex flex-col flex-1 gap-2 w-full h-0 p-6">
+                <h2 className="uppercase">Night club</h2>
+                <span className="flex gap-2 items-center">
+                  <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn’t anything embarassing hidden in the middle of the text.</p>
+                </span>
+                <a href="/blogPost  " className="self-end">
+                  <Button text="Read More" type="button" />
+                </a>
+              </div>
+            </div>
+          ),
+        }}
+      />
     </div>
   );
 };
