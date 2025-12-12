@@ -71,3 +71,65 @@ body {
     font-size: clamp(1.125rem, 0.7083rem + 1.8519vw, 2.375rem);
   }
 }
+
+.my-player {
+  .rhap_container {
+    background: none;
+    padding: 16px;
+    padding-top: 70px;
+  }
+
+  .rhap_progress-section {
+    margin-bottom: 1rem;
+  }
+
+  .rhap_progress-filled {
+    background: var(--red);
+    border-radius: 0;
+  }
+
+  .rhap_progress-indicator {
+    background: var(--white);
+    width: 24px;
+    height: 24px;
+  }
+  .rhap_main-controls {
+    .rhap_button-clear {
+      height: 52px;
+      width: 52px;
+      margin-inline: 1rem;
+      svg {
+        height: 52px;
+        width: 52px;
+      }
+    }
+    .rhap_forward-button {
+      height: fit-content;
+      width: fit-content;
+    }
+    .rhap_rewind-button {
+      height: fit-content;
+      width: fit-content;
+    }
+  }
+
+  .rhap_controls-section button {
+    color: white;
+  }
+  .rhap_volume-container {
+    margin-right: 3rem;
+    scale: 1.4;
+  }
+  .rhap_volume-bar-area {
+    .rhap_volume-bar {
+      background: var(--red);
+      border-radius: 0;
+    }
+  }
+  .rhap_time {
+    color: white;
+  }
+  .rhap_volume-indicator {
+    background: var(--white);
+  }
+}

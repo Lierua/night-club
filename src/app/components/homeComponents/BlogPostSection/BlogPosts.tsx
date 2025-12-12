@@ -35,7 +35,7 @@ const BlogPosts = async () => {
 const FetchPosts = async () => {
   "use server";
 
-  const url = "http://localhost:4000/blogposts?limit=3";
+  const url = "http://localhost:4000/blogposts?limit=3&sort=createdAt:asc";
   const response = await fetch(url);
   const posts = (await response.json()) as BlogResponse;
 
