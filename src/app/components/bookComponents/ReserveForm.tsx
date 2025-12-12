@@ -9,18 +9,23 @@ import Success from "../utilityComponents/formUtility/Success";
 import Error from "../utilityComponents/formUtility/Error";
 import { useFormStatus } from "react-dom";
 
+type ReserveFormProps = {
+  day: string;
+  setDay: (day: string) => void;
+};
+
 const initialState: ReserveFormState = {
   success: false,
   data: undefined,
   error: {},
 };
-const SubmitReserveBtn = () => {
-  const { pending } = useFormStatus();
 
+const SubmitBtn = () => {
+  const { pending } = useFormStatus();
   return <Button text="Submit" type="submit" pending={pending} />;
 };
 
-const ReserveForm = () => {
+const ReserveForm = ({ day, setDay }: ReserveFormProps) => {
   const [state, formAction] = useActionState(submitReserve, initialState);
   return (
     <form action={formAction} className="flex flex-col gap-6 mb-[90px]">
@@ -79,6 +84,7 @@ const ReserveForm = () => {
               type="date"
               placeholder="Select Date"
               defaultValue={state?.data?.userDate ?? ""}
+              onChange={(e) => setDay(e.target.value)}
             />
           </div>
           <div className="flex flex-col gap-2 w-full">
@@ -110,7 +116,7 @@ const ReserveForm = () => {
           text="Your Reservation is set up."
         />
         <div className="ml-auto">
-          <SubmitReserveBtn />
+          <SubmitBtn />
         </div>
       </div>
     </form>

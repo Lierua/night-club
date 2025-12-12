@@ -1,16 +1,15 @@
-import ReserveForm from "@/app/components/bookComponents/ReserveForm";
-import Tables from "@/app/components/bookComponents/Tables";
+import ReserveSection from "@/app/components/bookComponents/ReserveSection";
 import NavBar from "@/app/components/utilityComponents/Navbar";
 import PageTitle from "@/app/components/utilityComponents/PageTitle";
 import Footer from "@/app/components/utilityComponents/footerComps/Footer";
 
-export default async function BlogPostSite() {
+export default function BookPage() {
   return (
     <div className="[&>*]:col-[content]">
       <NavBar page="book" />
       <PageTitle text="Book table" />
-      <Tables></Tables>
-      <ReserveForm></ReserveForm>
+
+      <ReserveSection />
       <Footer />
     </div>
   );

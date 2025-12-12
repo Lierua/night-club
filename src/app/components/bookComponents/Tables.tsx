@@ -1,6 +1,15 @@
 import Image from "next/image";
 
-const Tables = () => {
+// Props type
+type TablesProps = {
+  day: string;
+  reservations: any[]; // could refine later with real reservation type
+};
+
+function Tables({ day, reservations }: TablesProps) {
+  console.log("Tables day prop:", day); // <-- track day prop
+  console.log("Current reservations:", reservations);
+
   return (
     <div className="py-[90px] grid grid-cols-5 gap-y-12 font-scale">
       <div className="grid grid-cols-1 grid-rows-1 [&>*]:col-[1/2] [&>*]:row-[1/2] items-center">
@@ -12,7 +21,15 @@ const Tables = () => {
           alt={"logo"}
           className=""
         />
-        <h1 className="w-fit h-fit mx-auto">1</h1>
+        <h1
+          className={`w-fit h-fit mx-auto ${
+            reservations.some((r) => Number(r.table) === 1)
+              ? "text-(--red)"
+              : ""
+          }`}
+        >
+          1
+        </h1>
       </div>
       <div className="grid grid-cols-1 grid-rows-1 [&>*]:col-[1/2] [&>*]:row-[1/2] items-center">
         <Image
@@ -23,7 +40,15 @@ const Tables = () => {
           alt={"logo"}
           className=""
         />
-        <h1 className="w-fit h-fit mx-auto">2</h1>
+        <h1
+          className={`w-fit h-fit mx-auto ${
+            reservations.some((r) => Number(r.table) === 2)
+              ? "text-(--red)"
+              : ""
+          }`}
+        >
+          2
+        </h1>
       </div>
       <div className="grid grid-cols-1 grid-rows-1 [&>*]:col-[1/2] [&>*]:row-[1/2] items-center">
         <Image
@@ -34,7 +59,15 @@ const Tables = () => {
           alt={"logo"}
           className=""
         />
-        <h1 className="w-fit h-fit mx-auto">3</h1>
+        <h1
+          className={`w-fit h-fit mx-auto ${
+            reservations.some((r) => Number(r.table) === 3)
+              ? "text-(--red)"
+              : ""
+          }`}
+        >
+          3
+        </h1>
       </div>
       <div className="grid grid-cols-1 grid-rows-1 [&>*]:col-[1/2] [&>*]:row-[1/2] items-center">
         <Image
@@ -45,7 +78,15 @@ const Tables = () => {
           alt={"logo"}
           className=""
         />
-        <h1 className="w-fit h-fit mx-auto">4</h1>
+        <h1
+          className={`w-fit h-fit mx-auto ${
+            reservations.some((r) => Number(r.table) === 4)
+              ? "text-(--red)"
+              : ""
+          }`}
+        >
+          4
+        </h1>
       </div>
       <div className="grid grid-cols-1 grid-rows-1 [&>*]:col-[1/2] [&>*]:row-[1/2] items-center">
         <Image
@@ -56,7 +97,15 @@ const Tables = () => {
           alt={"logo"}
           className=""
         />
-        <h1 className="w-fit h-fit mx-auto">5</h1>
+        <h1
+          className={`w-fit h-fit mx-auto ${
+            reservations.some((r) => Number(r.table) === 5)
+              ? "text-(--red)"
+              : ""
+          }`}
+        >
+          5
+        </h1>
       </div>
       <div className="grid grid-cols-1 grid-rows-1 [&>*]:col-[1/2] [&>*]:row-[1/2] items-center">
         <Image
@@ -67,7 +116,15 @@ const Tables = () => {
           alt={"logo"}
           className=""
         />
-        <h1 className="w-fit h-fit mx-auto">6</h1>
+        <h1
+          className={`w-fit h-fit mx-auto ${
+            reservations.some((r) => Number(r.table) === 6)
+              ? "text-(--red)"
+              : ""
+          }`}
+        >
+          6
+        </h1>
       </div>
       <div className="grid grid-cols-1 grid-rows-1 [&>*]:col-[1/2] [&>*]:row-[1/2] items-center">
         <Image
@@ -78,7 +135,15 @@ const Tables = () => {
           alt={"logo"}
           className=""
         />
-        <h1 className="w-fit h-fit mx-auto">7</h1>
+        <h1
+          className={`w-fit h-fit mx-auto ${
+            reservations.some((r) => Number(r.table) === 7)
+              ? "text-(--red)"
+              : ""
+          }`}
+        >
+          7
+        </h1>
       </div>
       <div className="grid grid-cols-1 grid-rows-1 [&>*]:col-[1/2] [&>*]:row-[1/2] items-center">
         <Image
@@ -89,7 +154,15 @@ const Tables = () => {
           alt={"logo"}
           className=""
         />
-        <h1 className="w-fit h-fit mx-auto">8</h1>
+        <h1
+          className={`w-fit h-fit mx-auto ${
+            reservations.some((r) => Number(r.table) === 8)
+              ? "text-(--red)"
+              : ""
+          }`}
+        >
+          8
+        </h1>
       </div>
       <div className="grid grid-cols-1 grid-rows-1 [&>*]:col-[1/2] [&>*]:row-[1/2] items-center">
         <Image
@@ -100,7 +173,15 @@ const Tables = () => {
           alt={"logo"}
           className=""
         />
-        <h1 className="w-fit h-fit mx-auto">9</h1>
+        <h1
+          className={`w-fit h-fit mx-auto ${
+            reservations.some((r) => Number(r.table) === 9)
+              ? "text-(--red)"
+              : ""
+          }`}
+        >
+          9
+        </h1>
       </div>
       <div className="grid grid-cols-1 grid-rows-1 [&>*]:col-[1/2] [&>*]:row-[1/2] items-center">
         <Image
@@ -111,7 +192,15 @@ const Tables = () => {
           alt={"logo"}
           className=""
         />
-        <h1 className="w-fit h-fit mx-auto">10</h1>
+        <h1
+          className={`w-fit h-fit mx-auto ${
+            reservations.some((r) => Number(r.table) === 10)
+              ? "text-(--red)"
+              : ""
+          }`}
+        >
+          10
+        </h1>
       </div>
       <div className="grid grid-cols-1 grid-rows-1 [&>*]:col-[1/2] [&>*]:row-[1/2] items-center">
         <Image
@@ -122,7 +211,15 @@ const Tables = () => {
           alt={"logo"}
           className=""
         />
-        <h1 className="w-fit h-fit mx-auto">11</h1>
+        <h1
+          className={`w-fit h-fit mx-auto ${
+            reservations.some((r) => Number(r.table) === 11)
+              ? "text-(--red)"
+              : ""
+          }`}
+        >
+          11
+        </h1>
       </div>
       <div className="grid grid-cols-1 grid-rows-1 [&>*]:col-[1/2] [&>*]:row-[1/2] items-center">
         <Image
@@ -133,7 +230,15 @@ const Tables = () => {
           alt={"logo"}
           className=""
         />
-        <h1 className="w-fit h-fit mx-auto">12</h1>
+        <h1
+          className={`w-fit h-fit mx-auto ${
+            reservations.some((r) => Number(r.table) === 12)
+              ? "text-(--red)"
+              : ""
+          }`}
+        >
+          12
+        </h1>
       </div>
       <div className="grid grid-cols-1 grid-rows-1 [&>*]:col-[1/2] [&>*]:row-[1/2] items-center">
         <Image
@@ -144,7 +249,15 @@ const Tables = () => {
           alt={"logo"}
           className=""
         />
-        <h1 className="w-fit h-fit mx-auto">13</h1>
+        <h1
+          className={`w-fit h-fit mx-auto ${
+            reservations.some((r) => Number(r.table) === 13)
+              ? "text-(--red)"
+              : ""
+          }`}
+        >
+          13
+        </h1>
       </div>
       <div className="grid grid-cols-1 grid-rows-1 [&>*]:col-[1/2] [&>*]:row-[1/2] items-center">
         <Image
@@ -155,7 +268,15 @@ const Tables = () => {
           alt={"logo"}
           className=""
         />
-        <h1 className="w-fit h-fit mx-auto">14</h1>
+        <h1
+          className={`w-fit h-fit mx-auto ${
+            reservations.some((r) => Number(r.table) === 14)
+              ? "text-(--red)"
+              : ""
+          }`}
+        >
+          14
+        </h1>
       </div>
       <div className="grid grid-cols-1 grid-rows-1 [&>*]:col-[1/2] [&>*]:row-[1/2] items-center">
         <Image
@@ -166,10 +287,18 @@ const Tables = () => {
           alt={"logo"}
           className=""
         />
-        <h1 className="w-fit h-fit mx-auto">15</h1>
+        <h1
+          className={`w-fit h-fit mx-auto ${
+            reservations.some((r) => Number(r.table) === 15)
+              ? "text-(--red)"
+              : ""
+          }`}
+        >
+          15
+        </h1>
       </div>
     </div>
   );
-};
+}
 
 export default Tables;
