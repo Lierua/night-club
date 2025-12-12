@@ -196,40 +196,9 @@ export async function submitContact(
             RESERVE TABLE
 ============================ */
 
-const reserveSchema = z.object({
-  userName: z
-    .string()
-    .min(3, { message: "Input must be longer then 3 characters long." })
-    .max(20, { message: "Input must be less then 20 characters long." }),
-  userMail: z.string().email("Please be sure the input is a valid Email"),
-  userTable: z.coerce
-    .number("Please type number for a table between 1-15")
-    .min(1, {
-      message: "Please type number for a table between 1-15",
-    })
-    .max(15, {
-      message: "Please type number for a table between 1-15",
-    }),
-  guestNumber: z.coerce
-    .number("Please tell us the amount of guests the reservation is for")
-    .min(1, {
-      message: "Atleast 1 guest is expected per reservation",
-    })
-    .max(8, {
-      message: "We sadly do not have tables for more then 8 guests",
-    }),
-  userDate: z.string().min(1, { message: "Please select a Date" }),
-  userContact: z.string().regex(/^\+?\d[\d\s-]{6,14}\d$/, {
-    message: "Please enter a valid phone number",
-  }),
-  comment: z.string().optional(),
-});
-
-export type ReserveInput = z.infer<typeof reserveSchema>;
-
 export type ReserveFormState = {
   success: boolean;
-  data?: ReserveInput;
+  data?: any;
   error?: Record<string, string[]>;
 };
 
@@ -246,7 +215,39 @@ export async function submitReserve(
     userContact: formData.get("userContact"),
     comment: formData.get("comment"),
   };
-  const parsed = reserveSchema.safeParse(rawData);
+
+  const reservedRes = await fetch(
+    `http://localhost:4000/reservations?date=${rawData.userDate}`
+  );
+  const reservedData = await reservedRes.json();
+  const reservedTables = reservedData.map((r: any) => Number(r.table));
+
+  const schema = z.object({
+    userName: z
+      .string()
+      .min(3, { message: "Input must be longer than 3 characters" })
+      .max(20, { message: "Input must be less than 20 characters" }),
+    userMail: z.string().email("Please enter a valid Email"),
+    userTable: z.coerce
+      .number()
+      .min(1, { message: "Please type a number between 1-15" })
+      .max(15, { message: "Please type a number between 1-15" })
+      .refine((val) => !reservedTables.includes(val), {
+        message:
+          "This table is already reserved (marked as red), please pick another",
+      }),
+    guestNumber: z.coerce
+      .number()
+      .min(1, { message: "At least 1 guest is expected per reservation" })
+      .max(8, { message: "We do not have tables for more than 8 guests" }),
+    userDate: z.string().min(1, { message: "Please select a date" }),
+    userContact: z.string().regex(/^\+?\d[\d\s-]{6,14}\d$/, {
+      message: "Please enter a valid phone number",
+    }),
+    comment: z.string().optional(),
+  });
+
+  const parsed = schema.safeParse(rawData);
 
   if (!parsed.success) {
     return {
@@ -264,7 +265,7 @@ export async function submitReserve(
       body: JSON.stringify({
         name: parsed.data.userName,
         email: parsed.data.userMail,
-        date: new Date().toISOString(),
+        date: parsed.data.userDate,
         table: parsed.data.userTable,
         guests: parsed.data.guestNumber,
         phone: parsed.data.userContact,

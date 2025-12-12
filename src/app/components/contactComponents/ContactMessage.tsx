@@ -15,7 +15,7 @@ const initialState: ContactFormState = {
   error: {},
 };
 
-const SubmitContactBtn = () => {
+const SubmitBtn = () => {
   const { pending } = useFormStatus();
 
   return <Button text="Submit" type="submit" pending={pending} />;
@@ -64,7 +64,7 @@ const ContactMessage = () => {
       <div className="flex justify-between">
         <Success<ContactFormState> state={state} text="Comment added!" />
         <div className="ml-auto">
-          <SubmitContactBtn />
+          <SubmitBtn />
         </div>
       </div>
     </form>

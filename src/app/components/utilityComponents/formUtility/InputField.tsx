@@ -8,6 +8,7 @@ type InputProps<T extends ErrorState> = {
   placeholder?: string;
   defaultValue?: string | number;
   state?: T;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const InputField = <T extends ErrorState>({
@@ -16,6 +17,7 @@ const InputField = <T extends ErrorState>({
   type,
   placeholder,
   defaultValue,
+  onChange,
 }: InputProps<T>) => {
   const hasError = state?.error?.[dataInput];
 
@@ -28,6 +30,7 @@ const InputField = <T extends ErrorState>({
       name={dataInput}
       placeholder={placeholder}
       defaultValue={defaultValue ?? ""}
+      onChange={onChange}
     />
   );
 };

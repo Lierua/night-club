@@ -14,7 +14,7 @@ const initialState: FormState = {
   error: {},
 };
 
-const SubmitSubscriptionBtn = () => {
+const SubmitBtn = () => {
   const { pending } = useFormStatus();
 
   return <Button text="Submit" type="submit" pending={pending} />;
@@ -34,7 +34,7 @@ const Subscription = () => {
           defaultValue={state?.data?.subscriptionMail ?? ""}
         />
 
-        <SubmitSubscriptionBtn />
+        <SubmitBtn />
       </form>
 
       <Error<FormState> state={state} stateType="subscriptionMail" />
