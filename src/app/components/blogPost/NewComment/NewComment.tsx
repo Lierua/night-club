@@ -7,16 +7,21 @@ import InputField from "../../utilityComponents/formUtility/InputField";
 import InputBox from "../../utilityComponents/formUtility/InputBox";
 import Error from "../../utilityComponents/formUtility/Error";
 import Success from "../../utilityComponents/formUtility/Success";
+import { useFormStatus } from "react-dom";
 
 const initialState: CommentFormState = {
   success: false,
   data: undefined,
   error: {},
 };
+const SubmitCommentBtn = () => {
+  const { pending } = useFormStatus();
 
+  return <Button text="Submit" type="submit" pending={pending} />;
+};
 const NewComment = ({ blogpostId }: { blogpostId: number }) => {
   const [state, formAction] = useActionState(submitComment, initialState);
-
+  const { pending } = useFormStatus();
   return (
     <form action={formAction} className="flex flex-col gap-8 pb-[90px]">
       <h1 className="text-[44px] uppercase">Leave a Comment</h1>
@@ -60,7 +65,7 @@ const NewComment = ({ blogpostId }: { blogpostId: number }) => {
       <div className="flex justify-between">
         <Success<CommentFormState> state={state} text="Comment added!" />
         <div className="ml-auto">
-          <Button text="Submit" type="submit" />
+          <SubmitCommentBtn />
         </div>
       </div>
     </form>

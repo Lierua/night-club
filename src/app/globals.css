@@ -7,8 +7,6 @@
   --black: #1a1a1a;
   --white: white;
   --content-width: 1440px;
-
-  
 }
 
 @theme inline {
@@ -66,4 +64,64 @@ body {
   background-image: url(/assets/bg/footerbg.jpg);
   background-size: cover;
   background-position: center;
+}
+
+.font-scale {
+  h1 {
+    font-size: clamp(1.125rem, 0.7083rem + 1.8519vw, 2.375rem);
+  }
+}
+
+/*div corner styling utility*/
+
+.hover-border {
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    border-top: 1px solid var(--red);
+    border-bottom: 1px solid var(--red);
+  }
+}
+
+.hover-tag-bottom::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 150px;
+  background: var(--red);
+  bottom: -40px;
+  right: -27px;
+  z-index: 10;
+  transform: rotate(45deg);
+  transition: opacity 0.2s ease;
+  opacity: 0;
+}
+
+.hover-tag-bottom:hover::before {
+  opacity: 1;
+}
+
+.hover-tag-top::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 150px;
+  background: var(--red);
+  top: -40px;
+  left: -25px;
+  z-index: 10;
+  transform: rotate(45deg);
+  transition: opacity 0.2s ease;
+  opacity: 0;
+}
+
+.hover-tag-top:hover::after {
+  opacity: 1;
+}
+
+/*gallery grid*/
+.gallery-grid {
+  display: grid;
+  grid-template-areas: "a a b c c d" "e e f f g g";
+  grid-template-columns: repeat(6, minmax(0, 1fr));
 }

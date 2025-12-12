@@ -35,7 +35,7 @@ const BlogPosts = async () => {
 const FetchPosts = async () => {
   "use server";
 
-  const url = "http://localhost:4000/blogposts";
+  const url = "http://localhost:4000/blogposts?limit=3";
   const response = await fetch(url);
   const posts = (await response.json()) as BlogResponse;
 
@@ -55,7 +55,7 @@ const FetchPosts = async () => {
   console.log(postsWithComments);
 
   return (
-    <div className="grid items-center gap-12 py-[90px]">
+    <div className="grid items-center py-[90px]">
       <TitleText text="recent blog" />
 
       <div className="grid grid-cols-3 gap-6">

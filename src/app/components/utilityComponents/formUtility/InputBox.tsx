@@ -7,6 +7,7 @@ type InputProps<T extends ErrorState> = {
   placeholder?: string;
   defaultValue?: string | number;
   state?: T;
+  Optional?: boolean;
 };
 
 const InputField = <T extends ErrorState>({
@@ -14,6 +15,7 @@ const InputField = <T extends ErrorState>({
   dataInput,
   placeholder,
   defaultValue,
+  Optional = false,
 }: InputProps<T>) => {
   const hasError = state?.error?.[dataInput];
 
@@ -25,6 +27,7 @@ const InputField = <T extends ErrorState>({
       name={dataInput}
       placeholder={placeholder}
       defaultValue={defaultValue ?? ""}
+      required={!Optional}
     />
   );
 };

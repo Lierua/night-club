@@ -1,14 +1,13 @@
-import { Suspense } from "react";
-import TitleText from "@/app/components/utilityComponents/TitleText";
 import Image from "next/image";
 import Link from "next/link";
-import Button from "../utilityComponents/Button";
+import Button from "../utilityComponents/Button"; // Blogs.tsx
+
+import { Suspense } from "react";
+import Pagination from "./Pagination";
 
 type BlogPost = {
   id: number;
-  asset: {
-    url: string;
-  };
+  asset: { url: string };
   title: string;
   content: string;
   author: string;
@@ -25,18 +24,25 @@ type Commentdata = {
 type CommentResponse = Commentdata[];
 type BlogResponse = BlogPost[];
 
-const Blogs = async () => {
+const Blogs = async ({ page }: { page: number }) => {
   return (
     <Suspense>
-      <FetchPosts />
+      <FetchPosts page={page} />
     </Suspense>
   );
 };
 
-const FetchPosts = async () => {
+const FetchPosts = async ({
+  page,
+  limit = 3,
+}: {
+  page: number;
+  limit?: number;
+}) => {
   "use server";
 
-  const url = "http://localhost:4000/blogposts";
+  const url = `http://localhost:4000/blogposts?page=${page}&limit=${limit}`;
+
   const response = await fetch(url);
   const posts = (await response.json()) as BlogResponse;
 
@@ -46,14 +52,13 @@ const FetchPosts = async () => {
       const commentResponse = await fetch(commentUrl);
       const data = await commentResponse.json();
       const comments = data.comments as CommentResponse;
+
       return {
         ...post,
         commentCount: comments.length,
       };
     })
   );
-
-  console.log(postsWithComments);
 
   return (
     <div className="grid items-center py-[90px] full-bleed">
@@ -62,13 +67,14 @@ const FetchPosts = async () => {
           key={post.id}
           className="grid min-h-[530px] grid-cols-[1fr_minmax(0,_720px)_minmax(0,_720px)_1fr] bg-black"
         >
+          {/* IMAGE */}
           <div
             className={`h-full w-full overflow-hidden ${
               post.id % 2 !== 0 ? "col-[1/3]" : "col-[3/5] row-[1]"
-            } `}
+            }`}
           >
             <Image
-              className="h-full w-full object-cover bg-(--blue)/60"
+              className="h-full w-full object-cover"
               loading="eager"
               src={post.asset.url}
               width={1000}
@@ -78,12 +84,14 @@ const FetchPosts = async () => {
             />
           </div>
 
+          {/* TEXT */}
           <div
             className={`py-10 flex flex-col gap-2 ${
               post.id % 2 !== 0 ? " pl-10" : " pr-10 col-[2/3] row-[1]"
             }`}
           >
             <h2 className="uppercase">{post.title}</h2>
+
             <div className="flex text-(--red) gap-2">
               <p>BY: {post.author}</p>
               <span>/</span>
@@ -97,9 +105,11 @@ const FetchPosts = async () => {
                 })}
               </p>
             </div>
-            <p className="leading-8 text-[16px]! w-[95%] mt-4 mb-4">
+
+            <p className="leading-8 w-[95%] mt-4 mb-4">
               {post.content.slice(0, 700)}
             </p>
+
             <Link
               href={`/blogPost/${post.id}`}
               className="flex flex-col gap-1 w-fit ml-auto mt-auto mb-8"
@@ -109,7 +119,12 @@ const FetchPosts = async () => {
           </div>
         </div>
       ))}
+
+      <div className="mt-8 mx-auto">
+        <Pagination page={page} />
+      </div>
     </div>
   );
 };
+
 export default Blogs;

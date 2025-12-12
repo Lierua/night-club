@@ -6,11 +6,18 @@ import SubscriptionInput from "./SubscriptionInput";
 import Button from "../../utilityComponents/Button";
 import Error from "../../utilityComponents/formUtility/Error";
 import Success from "../../utilityComponents/formUtility/Success";
+import { useFormStatus } from "react-dom";
 
 const initialState: FormState = {
   success: false,
   data: undefined,
   error: {},
+};
+
+const SubmitSubscriptionBtn = () => {
+  const { pending } = useFormStatus();
+
+  return <Button text="Submit" type="submit" pending={pending} />;
 };
 
 const Subscription = () => {
@@ -27,7 +34,7 @@ const Subscription = () => {
           defaultValue={state?.data?.subscriptionMail ?? ""}
         />
 
-        <Button text="Subscribe" type="submit" />
+        <SubmitSubscriptionBtn />
       </form>
 
       <Error<FormState> state={state} stateType="subscriptionMail" />

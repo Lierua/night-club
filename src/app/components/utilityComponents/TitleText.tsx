@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const TitleText = ({ text }: { text: string }) => {
   return (
-    <div className="flex flex-col gap-1 mx-auto">
+    <div className="flex flex-col gap-1 mx-auto mb-12">
       <h1 className="w-fit uppercase text-center mx-auto">{text}</h1>
       <Image
         loading="eager"
