@@ -3,11 +3,10 @@ import Image from "next/image";
 // Props type
 type TablesProps = {
   day: string;
-  reservations: any[]; // could refine later with real reservation type
+  reservations: any[];
 };
 
 function Tables({ day, reservations }: TablesProps) {
-  console.log("Tables day prop:", day); // <-- track day prop
   console.log("Current reservations:", reservations);
 
   return (

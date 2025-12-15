@@ -1,27 +1,39 @@
 "use client";
 
 import Image from "next/image";
-
 import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
+import { Track } from "./MusicPlayerComponent";
 
-const Player = () => {
+type PlayerProps = {
+  musicList: Track[];
+  current: number;
+};
+
+const Player = ({ musicList, current }: PlayerProps) => {
+  const track = musicList[current];
+
+  if (!track) return null;
+
   return (
     <div className="grid grid-cols-[340px_minmax(0,1100px)]">
-      <Image
-        loading="eager"
-        src={"/assets/track_thumb.jpg"}
-        width={300}
-        height={30}
-        alt={"track image"}
-        className="aspect-square"
-      />
+      <div className="w-[340px] h-[300px] overflow-hidden">
+        <Image
+          loading="eager"
+          src={track.img}
+          width={340}
+          height={300}
+          alt={"track image"}
+          className=""
+        />
+      </div>
       <div className="Flex flex-col gap-4 px-8 py-10">
-        <h2 className="ml-4">Song title</h2>
+        <h2 className="ml-4 uppercase">{track.title}</h2>
         <div className="my-player">
           <AudioPlayer
-            src="/assets/media/black-box-funky.mp3"
+            src={track.song}
             autoPlay={false}
+            volume={0.4}
             customIcons={{
               play: (
                 <img

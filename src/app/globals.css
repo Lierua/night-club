@@ -162,7 +162,6 @@ body {
   opacity: 1;
   bottom: -40px;
   right: -27px;
-  
 }
 
 .hover-tag-top::after {
@@ -190,4 +189,18 @@ body {
   display: grid;
   grid-template-areas: "a a b c c d" "e e f f g g";
   grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+/*Music player carousel*/
+[data-track]::-webkit-scrollbar {
+  display: none;
+}
+
+[data-review] {
+  transition: transform 0.5s ease-in-out;
+}
+
+[data-review].active {
+  transform: translateY(-0.5rem) scale(1.1);
+  transition: transform 0.5s ease-in-out;
 }
