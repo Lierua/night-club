@@ -10,7 +10,7 @@ function Tables({ day, reservations }: TablesProps) {
   console.log("Current reservations:", reservations);
 
   return (
-    <div className="py-[90px] grid grid-cols-5 gap-y-12 font-scale">
+    <div className="py-[90px] grid sm:grid-cols-5 gap-y-12">
       <div className="grid grid-cols-1 grid-rows-1 [&>*]:col-[1/2] [&>*]:row-[1/2] items-center">
         <Image
           loading="eager"
@@ -18,7 +18,7 @@ function Tables({ day, reservations }: TablesProps) {
           width={285}
           height={186}
           alt={"logo"}
-          className=""
+          className="sm:mx-0 mx-auto"
         />
         <h1
           className={`w-fit h-fit mx-auto ${
@@ -37,7 +37,7 @@ function Tables({ day, reservations }: TablesProps) {
           width={285}
           height={186}
           alt={"logo"}
-          className=""
+          className="sm:mx-0 mx-auto"
         />
         <h1
           className={`w-fit h-fit mx-auto ${
@@ -56,7 +56,7 @@ function Tables({ day, reservations }: TablesProps) {
           width={285}
           height={186}
           alt={"logo"}
-          className=""
+          className="sm:mx-0 mx-auto"
         />
         <h1
           className={`w-fit h-fit mx-auto ${
@@ -75,7 +75,7 @@ function Tables({ day, reservations }: TablesProps) {
           width={285}
           height={186}
           alt={"logo"}
-          className=""
+          className="sm:mx-0 mx-auto"
         />
         <h1
           className={`w-fit h-fit mx-auto ${
@@ -94,7 +94,7 @@ function Tables({ day, reservations }: TablesProps) {
           width={285}
           height={186}
           alt={"logo"}
-          className=""
+          className="sm:mx-0 mx-auto"
         />
         <h1
           className={`w-fit h-fit mx-auto ${
@@ -113,7 +113,7 @@ function Tables({ day, reservations }: TablesProps) {
           width={285}
           height={186}
           alt={"logo"}
-          className=""
+          className="sm:mx-0 mx-auto"
         />
         <h1
           className={`w-fit h-fit mx-auto ${
@@ -132,7 +132,7 @@ function Tables({ day, reservations }: TablesProps) {
           width={285}
           height={186}
           alt={"logo"}
-          className=""
+          className="sm:mx-0 mx-auto"
         />
         <h1
           className={`w-fit h-fit mx-auto ${
@@ -151,7 +151,7 @@ function Tables({ day, reservations }: TablesProps) {
           width={285}
           height={186}
           alt={"logo"}
-          className=""
+          className="sm:mx-0 mx-auto"
         />
         <h1
           className={`w-fit h-fit mx-auto ${
@@ -170,7 +170,7 @@ function Tables({ day, reservations }: TablesProps) {
           width={285}
           height={186}
           alt={"logo"}
-          className=""
+          className="sm:mx-0 mx-auto"
         />
         <h1
           className={`w-fit h-fit mx-auto ${
@@ -189,7 +189,7 @@ function Tables({ day, reservations }: TablesProps) {
           width={285}
           height={186}
           alt={"logo"}
-          className=""
+          className="sm:mx-0 mx-auto"
         />
         <h1
           className={`w-fit h-fit mx-auto ${
@@ -208,7 +208,7 @@ function Tables({ day, reservations }: TablesProps) {
           width={285}
           height={186}
           alt={"logo"}
-          className=""
+          className="sm:mx-0 mx-auto"
         />
         <h1
           className={`w-fit h-fit mx-auto ${
@@ -227,7 +227,7 @@ function Tables({ day, reservations }: TablesProps) {
           width={285}
           height={186}
           alt={"logo"}
-          className=""
+          className="sm:mx-0 mx-auto"
         />
         <h1
           className={`w-fit h-fit mx-auto ${
@@ -246,7 +246,7 @@ function Tables({ day, reservations }: TablesProps) {
           width={285}
           height={186}
           alt={"logo"}
-          className=""
+          className="sm:mx-0 mx-auto"
         />
         <h1
           className={`w-fit h-fit mx-auto ${
@@ -265,7 +265,7 @@ function Tables({ day, reservations }: TablesProps) {
           width={285}
           height={186}
           alt={"logo"}
-          className=""
+          className="sm:mx-0 mx-auto"
         />
         <h1
           className={`w-fit h-fit mx-auto ${
@@ -284,7 +284,7 @@ function Tables({ day, reservations }: TablesProps) {
           width={285}
           height={186}
           alt={"logo"}
-          className=""
+          className="sm:mx-0 mx-auto"
         />
         <h1
           className={`w-fit h-fit mx-auto ${

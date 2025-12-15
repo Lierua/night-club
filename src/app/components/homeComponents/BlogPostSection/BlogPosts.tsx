@@ -55,10 +55,10 @@ const FetchPosts = async () => {
   console.log(postsWithComments);
 
   return (
-    <div className="grid items-center py-[90px]">
+    <div className="grid items-center sm:py-[90px] py-[30px] full-bleed content-padding">
       <TitleText text="recent blog" />
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid sm:grid-cols-3 gap-6 grid-cols-1">
         {postsWithComments.map((post) => (
           <Link
             href={`/blogPost/${post.id}`}
@@ -75,12 +75,12 @@ const FetchPosts = async () => {
               unoptimized
             />
             <h2 className="uppercase mt-4">{post.title}</h2>
-            <div className="flex text-(--red) gap-2">
+            <div className="flex text-(--red) gap-2 p-scale">
               <p>BY: {post.author}</p>
               <span>/</span>
               <p>{post.commentCount} Comments</p>
               <span>/</span>
-              <p>
+              <p className="">
                 {new Date().toLocaleDateString("en-GB", {
                   day: "numeric",
                   month: "short",

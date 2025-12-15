@@ -46,14 +46,13 @@ const musicList: Track[] = [
 
 const MusicPlayer = () => {
   const [current, setCurrent] = useState<number>(0);
-  const [show, setShow] = useState(false);
 
   return (
     <div className="full-bleed bg-black h-[936px] w-full py-[90px]">
       <div className="w-fit mx-auto">
         <TitleText text="Night Club Track" />
       </div>
-      <div className="w-fit mx-auto">
+      <div className="sm:w-fit w-full mx-auto">
         <Player musicList={musicList} current={current} />
       </div>
 

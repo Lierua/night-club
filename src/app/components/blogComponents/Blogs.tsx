@@ -61,11 +61,11 @@ const FetchPosts = async ({
   );
 
   return (
-    <div className="grid items-center py-[90px] full-bleed">
+    <div className="grid items-center sm:py-[90px] py-[30px] full-bleed">
       {postsWithComments.map((post) => (
         <div
           key={post.id}
-          className="grid min-h-[530px] grid-cols-[1fr_minmax(0,_720px)_minmax(0,_720px)_1fr] bg-black"
+          className="sm:grid min-h-[530px] sm:grid-cols-[1fr_minmax(0,_720px)_minmax(0,_720px)_1fr] bg-black"
         >
           {/* IMAGE */}
           <div
@@ -86,8 +86,8 @@ const FetchPosts = async ({
 
           {/* TEXT */}
           <div
-            className={`py-10 flex flex-col gap-2 ${
-              post.id % 2 !== 0 ? " pl-10" : " pr-10 col-[2/3] row-[1]"
+            className={`px-4 py-10 flex flex-col gap-2 ${
+              post.id % 2 !== 0 ? " sm:pl-10" : " sm:pr-10 col-[2/3] row-[1]"
             }`}
           >
             <h2 className="uppercase">{post.title}</h2>
@@ -112,7 +112,7 @@ const FetchPosts = async ({
 
             <Link
               href={`/blogPost/${post.id}`}
-              className="flex flex-col gap-1 w-fit ml-auto mt-auto mb-8"
+              className="flex flex-col gap-1 w-fit mt-auto mb-8 mx-auto sm:ml-auto sm:mx-0"
             >
               <Button text="Read More" type="button" />
             </Link>

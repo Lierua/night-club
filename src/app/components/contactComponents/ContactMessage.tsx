@@ -27,7 +27,7 @@ const ContactMessage = () => {
   return (
     <form
       action={formAction}
-      className="grid grid-cols-[1fr_minmax(0,704px)_1fr] gap-8 py-[90px] [&>*]:col-[2/3] "
+      className="grid grid-cols-[1fr_minmax(0,704px)_1fr] gap-8 py-[40px] sm:py-[90px] [&>*]:col-[2/3] "
     >
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-2 w-full">

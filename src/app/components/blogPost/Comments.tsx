@@ -34,11 +34,13 @@ const FetchComments = async ({ id }: { id: number }) => {
 
   return (
     <div className="grid items-center gap-12 pb-[90px]">
-      <h1 className="uppercase">{comments.length} Comments</h1>
+      <h1 className="uppercase px-[1.5rem] sm:px-0">
+        {comments.length} Comments
+      </h1>
 
       {comments.map((comment) => (
-        <div key={comment.id} className="flex flex-col gap-6">
-          <div className="flex gap-2 items-center">
+        <div key={comment.id} className="flex flex-col gap-6 ">
+          <div className="flex sm:flex-row flex-col gap-2 sm:items-center px-[1.5rem] sm:px-0">
             <h2>{comment.name} -</h2>
             <p className="text-(--red)">
               Posted{" "}
@@ -49,7 +51,7 @@ const FetchComments = async ({ id }: { id: number }) => {
               })}
             </p>
           </div>
-          <p>{comment.content}</p>
+          <p className="px-[1.5rem] sm:px-0">{comment.content}</p>
         </div>
       ))}
     </div>

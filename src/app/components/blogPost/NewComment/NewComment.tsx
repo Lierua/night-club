@@ -23,12 +23,14 @@ const NewComment = ({ blogpostId }: { blogpostId: number }) => {
   const [state, formAction] = useActionState(submitComment, initialState);
   return (
     <form action={formAction} className="flex flex-col gap-8 pb-[90px]">
-      <h1 className="text-[44px] uppercase">Leave a Comment</h1>
+      <h1 className="text-[44px] uppercase px-[1.5rem] sm:px-0">
+        Leave a Comment
+      </h1>
 
       <input type="hidden" name="blogpostId" value={blogpostId} />
 
-      <div className="flex flex-col gap-6">
-        <div className="flex gap-6">
+      <div className="flex flex-col gap-6 px-[1.5rem] sm:px-0">
+        <div className="flex flex-col sm:flex-row gap-6">
           <div className="flex flex-col gap-2 w-full">
             <Error<CommentFormState> state={state} stateType="userName" />
             <InputField<CommentFormState>
@@ -50,7 +52,7 @@ const NewComment = ({ blogpostId }: { blogpostId: number }) => {
             />
           </div>
         </div>
-        <div className="flex flex-col gap-2 w-full">
+        <div className="flex flex-col  gap-2 w-full">
           <Error<CommentFormState> state={state} stateType="comment" />
           <InputBox<CommentFormState>
             state={state}
@@ -63,7 +65,7 @@ const NewComment = ({ blogpostId }: { blogpostId: number }) => {
 
       <div className="flex justify-between">
         <Success<CommentFormState> state={state} text="Comment added!" />
-        <div className="ml-auto">
+        <div className="ml-auto px-[1.5rem] sm:px-0">
           <SubmitBtn />
         </div>
       </div>

@@ -40,7 +40,7 @@ body {
     }
   }
   p {
-    font-size: 18px;
+    font-size: clamp(1rem, 0.9489rem + 0.2273vw, 1.125rem);
   }
   button {
     font-size: 18px;
@@ -71,12 +71,19 @@ body {
     font-size: clamp(1.125rem, 0.7083rem + 1.8519vw, 2.375rem);
   }
 }
-
+.p-scale {
+  p {
+    font-size: clamp(0.875rem, 0.8239rem + 0.2273vw, 1rem);
+  }
+}
 .my-player {
   .rhap_container {
     background: none;
     padding: 16px;
     padding-top: 70px;
+    @media (max-width: 600px) {
+      padding-top: 40px;
+    }
   }
 
   .rhap_progress-section {

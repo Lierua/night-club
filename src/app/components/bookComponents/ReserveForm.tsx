@@ -29,9 +29,11 @@ const ReserveForm = ({ day, setDay }: ReserveFormProps) => {
   const [state, formAction] = useActionState(submitReserve, initialState);
   return (
     <form action={formAction} className="flex flex-col gap-6 mb-[90px]">
-      <h1 className="uppercase text-(44px) mb-6">Book a table</h1>
+      <h1 className="uppercase text-(44px) mb-6 px-[1.5rem] sm:px-0">
+        Book a table
+      </h1>
       <div className="flex flex-col gap-6">
-        <div className="flex gap-6">
+        <div className="flex sm:flex-row flex-col gap-6 px-[1.5rem] sm:px-0">
           <div className="flex flex-col gap-2 w-full">
             <Error<ReserveFormState> state={state} stateType="userName" />
             <InputField<ReserveFormState>
@@ -53,7 +55,7 @@ const ReserveForm = ({ day, setDay }: ReserveFormProps) => {
             />
           </div>
         </div>
-        <div className="flex gap-6">
+        <div className="flex sm:flex-row flex-col gap-6 px-[1.5rem] sm:px-0">
           <div className="flex flex-col gap-2 w-full">
             <Error<ReserveFormState> state={state} stateType="userTable" />
             <InputField<ReserveFormState>
@@ -75,7 +77,7 @@ const ReserveForm = ({ day, setDay }: ReserveFormProps) => {
             />
           </div>
         </div>
-        <div className="flex gap-6">
+        <div className="flex sm:flex-row flex-col gap-6 px-[1.5rem] sm:px-0">
           <div className="flex flex-col gap-2 w-full">
             <Error<ReserveFormState> state={state} stateType="userDate" />
             <InputField<ReserveFormState>
@@ -98,7 +100,7 @@ const ReserveForm = ({ day, setDay }: ReserveFormProps) => {
             />
           </div>
         </div>
-        <div className="flex flex-col gap-2 w-full">
+        <div className="flex flex-col gap-2 w-full px-[1.5rem] sm:px-0">
           <Error<ReserveFormState> state={state} stateType="comment" />
           <InputBox<ReserveFormState>
             state={state}
@@ -115,7 +117,7 @@ const ReserveForm = ({ day, setDay }: ReserveFormProps) => {
           state={state}
           text="Your Reservation is set up."
         />
-        <div className="ml-auto">
+        <div className="ml-auto px-[1.5rem] sm:px-0">
           <SubmitBtn />
         </div>
       </div>

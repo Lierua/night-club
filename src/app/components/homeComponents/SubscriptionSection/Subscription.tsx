@@ -25,7 +25,10 @@ const Subscription = () => {
 
   return (
     <div className="w-full justify-center px-[2rem] text-center flex flex-col gap-4">
-      <form action={formAction} className="flex gap-8 justify-center">
+      <form
+        action={formAction}
+        className="flex flex-col sm:flex-row gap-8 justify-center"
+      >
         <SubscriptionInput
           state={state}
           dataInput="subscriptionMail"
@@ -33,8 +36,9 @@ const Subscription = () => {
           placeholder="Enter Your Mail"
           defaultValue={state?.data?.subscriptionMail ?? ""}
         />
-
-        <SubmitBtn />
+        <div className="mx-auto sm:mx-0">
+          <SubmitBtn />
+        </div>
       </form>
 
       <Error<FormState> state={state} stateType="subscriptionMail" />

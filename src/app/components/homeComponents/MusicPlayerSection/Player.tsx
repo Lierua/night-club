@@ -16,8 +16,8 @@ const Player = ({ musicList, current }: PlayerProps) => {
   if (!track) return null;
 
   return (
-    <div className="grid grid-cols-[340px_minmax(0,1100px)]">
-      <div className="w-[340px] h-[300px] overflow-hidden">
+    <div className="grid sm:grid-cols-[340px_minmax(0,1100px)]">
+      <div className="w-[340px] h-[300px] overflow-hidden hidden sm:block">
         <Image
           loading="eager"
           src={track.img}
@@ -27,8 +27,10 @@ const Player = ({ musicList, current }: PlayerProps) => {
           className=""
         />
       </div>
-      <div className="Flex flex-col gap-4 px-8 py-10">
-        <h2 className="ml-4 uppercase">{track.title}</h2>
+      <div className="Flex flex-col gap-4 sm:px-8 py-10 w-full">
+        <h2 className="sm:ml-4 ml-0 mx-auto uppercase text-center sm:text-left">
+          {track.title}
+        </h2>
         <div className="my-player">
           <AudioPlayer
             src={track.song}

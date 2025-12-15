@@ -19,9 +19,9 @@ const BlogPostContent = ({ post }: BlogPostProps) => {
   }
   const lines = breakText(post.content, 2000);
   return (
-    <div className="grid gap-2 max-w-[1440px] mx-auto py-[90px]">
+    <div className="grid gap-2 max-w-[1440px] mx-auto sm:py-[90px] py-[30px]">
       <Image
-        className="h-[608px] w-full object-cover"
+        className="sm:h-[608px] w-full object-cover"
         loading="eager"
         src={post.asset?.url ?? "/placeholder.png"}
         width={1440}
@@ -29,8 +29,8 @@ const BlogPostContent = ({ post }: BlogPostProps) => {
         alt="{post.title}"
         unoptimized
       />
-      <h2 className="uppercase mt-8">{post.title}</h2>
-      <div className="flex text-(--red) gap-2 items-center">
+      <h2 className="uppercase mt-8 px-[1.5rem] sm:px-0">{post.title}</h2>
+      <div className="flex text-(--red) gap-2 items-center p-scale px-[1.5rem] sm:px-0">
         <p>BY: {post.author}</p>
         <span>/</span>
         <p>{post.commentCount} Comments</p>
@@ -44,7 +44,7 @@ const BlogPostContent = ({ post }: BlogPostProps) => {
         </p>
       </div>
       {lines.map((line, idx) => (
-        <p key={idx} className="leading-8 text-[16px] mt-4">
+        <p key={idx} className="leading-8  mt-4 px-[1.5rem] sm:px-0">
           {line}
         </p>
       ))}
