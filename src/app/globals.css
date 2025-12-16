@@ -81,7 +81,9 @@ body {
     background: none;
     padding: 16px;
     padding-top: 70px;
-    @media (max-width: 600px) {
+  }
+  @media (max-width: 600px) {
+    .rhap_container {
       padding-top: 40px;
     }
   }
@@ -100,8 +102,8 @@ body {
     width: 24px;
     height: 24px;
   }
-  .rhap_controls-section {
-    @media (max-width: 600px) {
+  @media (max-width: 600px) {
+    .rhap_controls-section {
       flex-direction: column;
       gap: 2rem;
     }
@@ -129,8 +131,8 @@ body {
   .rhap_controls-section button {
     color: white;
   }
-  .rhap_volume-controls {
-    @media (max-width: 600px) {
+  @media (max-width: 600px) {
+    .rhap_volume-controls {
       width: 200px;
     }
   }
@@ -149,6 +151,11 @@ body {
     .rhap_volume-bar {
       background: var(--red);
       border-radius: 0;
+    }
+  }
+  @media (max-width: 600px) {
+    .rhap_volume-bar-area {
+      width: 150px;
     }
   }
   .rhap_time {
