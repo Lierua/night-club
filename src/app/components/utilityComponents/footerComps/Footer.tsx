@@ -8,14 +8,14 @@ const Footer = () => {
     <footer
       className="full-bleed grid grid-cols-subgrid [&>*]:col-start-2  [&_h2]:text-(--red)
     footer-img before:content-[''] before:absolute before:inset-0 before:bg-black/85 
-    before:pointer-events-none before:z-10 relative [&>*]:relative [&>*]:z-20
+    before:pointer-events-none before:z-10 relative [&>*]:relative [&>*]:z-20 mb-4
 
     "
     >
-      <div className="m-8 flex flex-col gap-32">
-        <div className="grid grid-cols-[1fr_2fr] gap-12">
-          <div className="flex flex-col gap-8">
-            <div className="min-w-0 relative w-fit h-auto">
+      <div className="m-8 flex flex-col lg:gap-32 gap-12">
+        <div className="flex flex-col lg:grid lg:grid-cols-[1fr_2fr] gap-12">
+          <div className="flex flex-col gap-8 text-center lg:text-start">
+            <div className="min-w-0 relative w-fit h-auto self-center lg:self-start">
               <Image src="/assets/Logo.png" alt="logo" width={175} height={90} className="object-cover" />
             </div>
 
@@ -31,7 +31,7 @@ const Footer = () => {
               </ul>
             </span>
           </div>
-          <div className="grid grid-cols-2 gap-8">
+          <div className="hidden lg:grid grid-cols-2 gap-8">
             <RecentPosts />
             <div className="flex flex-col gap-12">
               <h2>Recent tweets</h2>
@@ -40,13 +40,13 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-row items-end">
-          <p className="flex-1">Night Club PSD Template - All Rights Reserved</p>
-          <span className="flex flex-1 flex-col justify-center mx-auto items-center gap-4">
+        <div className="flex flex-col items-center gap-4 lg:flex-row lg:items-end text-center lg:text-start">
+          <p className="flex-1 order-2 lg:order-1">Night Club PSD Template - All Rights Reserved</p>
+          <span className="flex flex-1 order-1 lg:order-2 mb-4 lg:mb-0 flex-col justify-center mx-auto items-center gap-4">
             <p>Stay Connected With Us</p>
             <SoMeIcons facebook="#" twitter="#" snapchat="#" />
           </span>
-          <p className="flex-1 text-end">Copyright © NightClub</p>
+          <p className="flex-1 text-end order-3 lg:order-3">Copyright © NightClub</p>
         </div>
       </div>
     </footer>

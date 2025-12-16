@@ -7,12 +7,6 @@ type Photo = {
   description: string;
 };
 
-// type GalleryItem = {
-//   id: number;
-//   url: string;
-//   description: string;
-// };
-
 const GalleryData = async () => {
   const url = "http://localhost:4000/gallery?limit=7";
   const response = await fetch(url, { cache: "no-store" });

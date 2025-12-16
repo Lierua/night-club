@@ -21,18 +21,19 @@ const CarouselOne = ({ slides, pushStyle }: CarouselProps) => {
 
   return (
     <div className={`items-center gap-4 h-[400px] md:h-[500px] flex flex-col justify-between lg:h-[650px] w-full relative ${pushStyle}`}>
-      <div className="w-full h-100 relative flex flex-5 flex-row overflow-hidden ">
+      <div className="overflow-x-scroll snap-x snap-mandatory  lg:w-full h-100 lg:relative flex flex-5 lg:flex-row lg:overflow-hidden ">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`w-full h-full flex items-center 
-          absolute inset-0 transition-transform duration-500 ${index === isCurrent ? "translate-x-0" : index < isCurrent ? "-translate-x-full" : "translate-x-full"}
+            className={`min-w-full h-full flex items-center justify-center snap-center
+          lg:absolute lg:inset-0 lg:min-w-0  transition-transform duration-500 ${index === isCurrent ? "translate-x-0" : index < isCurrent ? "-translate-x-full" : "translate-x-full"}
           `}
           >
             {slide.element}
           </div>
         ))}
       </div>
+      {/* -----contntroller boxes----- */}
       <div className="w-fit mx-auto [&>*]:min-w-4 [&>*]:bg-(--white) [&>*]:hover:scale-105 [&>*]:hover:cursor-pointer transition-all ease-in-out duration-100 gap-5 flex flex-1 items-center  flex-nowrap">
         {slides.map((e, i) => (
           <div key={e.id} onClick={() => handleSlide(i)} className={`w-6 h-6  ${i === isCurrent ? "bg-(--red)! h-5!" : ""}`}></div>

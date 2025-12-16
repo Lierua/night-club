@@ -140,6 +140,7 @@ body {
     background: var(--white);
   }
 }
+
 /*div corner styling utility*/
 
 .hover-border {
@@ -191,11 +192,61 @@ body {
   left: -27px;
 }
 
+.hover-tag-top,
+.hover-tag-bottom {
+  position: relative;
+  overflow: hidden;
+}
+
 /*gallery grid*/
 .gallery-grid {
   display: grid;
   grid-template-areas: "a a b c c d" "e e f f g g";
   grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.yarl__slide {
+  height: 100% !important;
+}
+
+.elegant-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.elegant-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.elegant-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.894);
+  border-radius: 999px;
+}
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-areas: "a" "b" "c" "d" "d" "e" "f" "g";
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .yarl__carousel {
+    --yarl_carousel_padding_px: 0 !important;
+    --yarl_carousel_spacing_percent: 0 !important;
+  }
+  .yarl__slide {
+    padding: 0 !important;
+  }
+
+  .yarl__navigation_prev {
+    left: 0 !important;
+    width: fit-content;
+    margin-left: 1rem !important;
+    margin-top: 1rem !important;
+  }
+  .yarl__navigation_next {
+    right: 0 !important;
+    width: fit-content;
+    margin-right: 1rem !important;
+    margin-top: 1rem !important;
+  }
 }
 
 /*Music player carousel*/

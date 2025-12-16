@@ -7,7 +7,7 @@ import { PiCheersFill } from "react-icons/pi";
 
 const WelcomeSec = () => {
   return (
-    <div className="grid grid-cols-3 gap-8 w-full h-[650px] mt-12">
+    <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8 w-full h-fit lg:h-[650px] mt-12">
       <WelcomeCard
         title="night club"
         backgroundImg="/assets/wlmeP1png.png"

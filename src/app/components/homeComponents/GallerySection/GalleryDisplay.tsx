@@ -60,8 +60,8 @@ const GalleryDisplay = ({ gallery }: GalleryProps) => {
   const gridAreas: string[] = ["a", "b", "c", "d", "e", "f", "g"];
 
   return (
-    <div className="flex w-full h-[800px] full-bleed overflow-hidden">
-      <motion.div ref={ref} variants={parentVariants} initial="hidden" animate={isInView ? "show" : "hidden"} className="grid gallery-grid w-full h-full min-h-full flex-shrink-0 gap-0 hover-tag-top hover-tag-bottom *:hover:cursor-pointer">
+    <div className="flex w-full h-[950px] lg:h-[800px] full-bleed overflow-hidden">
+      <motion.div ref={ref} variants={parentVariants} initial="hidden" animate={isInView ? "show" : "hidden"} className=" grid gallery-grid w-full h-full min-h-full flex-shrink-0 gap-0 hover-tag-top hover-tag-bottom *:hover:cursor-pointer">
         {gallery.map((item, index) => (
           <motion.div
             key={item.id}
@@ -88,16 +88,16 @@ const GalleryDisplay = ({ gallery }: GalleryProps) => {
         styles={{ container: { backgroundColor: "rgba(0, 0, 0, 0.9)" }, button: { border: "1px solid white", padding: "5px" }, navigationNext: { right: "15%" }, navigationPrev: { left: "15%" } }}
         render={{
           slide: ({ slide }) => (
-            <div className="relative w-[860px] flex flex-col h-full bg-black">
-              <div className="flex w-full flex-2">
-                <img src={slide.src} alt={slide.alt} className="object-contain w-full h-full" />
+            <div className="relative w-full overflow-y-auto elegant-scrollbar lg:w-[860px] flex flex-col h-full bg-black">
+              <div className="flex w-full flex-1 lg:flex-2">
+                <img src={slide.src} alt={slide.alt} className="lg:object-contain object-cover w-full h-full" />
               </div>
-              <div className="flex flex-col flex-1 gap-2 w-full h-0 p-6">
+              <div className="flex flex-col flex-1 gap-2 w-full h-full justify-center p-2 lg:p-6">
                 <h2 className="uppercase">Night club</h2>
-                <span className="flex gap-2 items-center">
-                  <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn’t anything embarassing hidden in the middle of the text.</p>
+                <span className="flex gap-2 items-center w-full">
+                  <p className="overflow-x-auto">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn’t anything embarassing hidden in the middle of the text.</p>
                 </span>
-                <a href="/blogPost  " className="self-end">
+                <a href="/blogPost" className="self-end">
                   <Button text="Read More" type="button" />
                 </a>
               </div>
