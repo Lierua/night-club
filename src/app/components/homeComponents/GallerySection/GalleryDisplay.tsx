@@ -61,7 +61,7 @@ const GalleryDisplay = ({ gallery }: GalleryProps) => {
 
   return (
     <div className="flex w-full h-fit lg:h-[800px] full-bleed overflow-hidden">
-      <motion.div ref={ref} variants={parentVariants} initial="hidden" animate={isInView ? "show" : "hidden"} className=" grid gallery-grid w-full h-full min-h-full flex-shrink-0 gap-0 hover-tag-top hover-tag-bottom *:hover:cursor-pointer">
+      <motion.div ref={ref} variants={parentVariants} initial="hidden" animate={isInView ? "show" : "hidden"} className=" grid gallery-grid w-full h-full min-h-full shrink-0 gap-0  *:hover:cursor-pointer">
         {gallery.map((item, index) => (
           <motion.div
             key={item.id}

@@ -33,13 +33,11 @@ export default function Home() {
           <TitleText text="Events of the Month" />
           <EomData />
         </div>
-        <MusicPlayer />
-
         <div className=" items-center justify-center full-bleed grid grid-cols-[1fr_minmax(0,1440px)_1fr] [&>*]:col-start-2 py-[90px] gap-6">
           <TitleText text="night club gallery" />
           <GalleryData />
         </div>
-
+        <MusicPlayer />
         <VideoSection />
         <TestimonialData />
         <BlogPosts></BlogPosts>

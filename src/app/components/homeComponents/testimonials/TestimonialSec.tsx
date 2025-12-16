@@ -23,7 +23,7 @@ const TestimonialSec = ({ id, name, content, facebook, twitter, link }: Testimon
         <h2 className="uppercase">{name}</h2>
       </div>
 
-      <span className="max-w-[1000px] mx-auto text-center justify-center overflow-y-scroll mt-2">
+      <span className="max-w-[1000px] mx-auto text-center justify-center overflow-y-scroll md:overflow-hidden mt-2">
         <p>{content}</p>
       </span>
       <div className=" w-fit h-fit mx-auto col-start-2 mt-8">
