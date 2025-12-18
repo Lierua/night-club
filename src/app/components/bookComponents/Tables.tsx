@@ -66,7 +66,7 @@ function Tables({ reservations }: TablesProps) {
           3
         </h1>
       </div>
-      <div className="grid grid-cols-1 grid-rows-1 [&>*]:col-[1/2] [&>*]:row-[1/2] items-center">
+      <div className="grid grid-cols-1 grid-rows-1 [&>*]:col-[1/2]  items-center [&>*]:row-[1/2]">
         <Image
           loading="eager"
           src={"/assets/table/table_1.png"}
