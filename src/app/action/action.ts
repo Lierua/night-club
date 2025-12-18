@@ -26,7 +26,11 @@ export async function submitMail(
   };
   const parsed = userMail.safeParse(rawData);
   if (!parsed.success) {
-    return { success: false, error: parsed.error.flatten().fieldErrors };
+    return {
+      success: false,
+      error: parsed.error.flatten().fieldErrors,
+      data: { subscriptionMail: formData.get("subscriptionMail") as string },
+    };
   }
   try {
     await new Promise((resolve) => setTimeout(resolve, 1000));
