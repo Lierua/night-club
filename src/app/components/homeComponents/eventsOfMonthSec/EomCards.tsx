@@ -46,7 +46,7 @@ const EomCard = ({ desc, time, location, title, date, url }: CardProps) => {
         {/*(Top elements)----->*/}
         <div className="w-full h-full flex flex-col relative z-10 group-hover:border-t group-hover:border-(--red) ">
           <motion.span variants={topVariants} className="flex w-full h-[70%]  items-center before:content-[''] before:absolute before:w-[120px] before:h-[200px] before:bg-(--red) before:top-[-100] before:left-[-75] before:rotate-45 relative">
-            <a className="px-4 py-2 mx-auto bg-(--red) text-(--white)" href="#">
+            <a className="px-4 py-2 mx-auto bg-(--red) text-(--white)" href="/book">
               Book Now
             </a>
           </motion.span>
