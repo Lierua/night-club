@@ -28,7 +28,7 @@ const FetchComments = async ({ id }: { id: number }) => {
   const url = `http://localhost:4000/blogposts/${id}?embed=comments`;
   const response = await fetch(url);
   const data = await response.json();
-  const comments = data.comments as CommentResponse; // <-- make sure this is an array
+  const comments = data.comments as CommentResponse;
 
   console.log(comments);
 
