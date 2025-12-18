@@ -12,12 +12,6 @@ type BlogPostProps = {
 };
 
 const BlogPostContent = ({ post }: BlogPostProps) => {
-  function breakText(text: string | undefined, n: number) {
-    if (!text) return [];
-    const regex = new RegExp(`(.{1,${n}})(\\s|$)`, "g");
-    return text.match(regex)?.map((line) => line.trim()) || [text];
-  }
-  const lines = breakText(post.content, 2000);
   return (
     <div className="grid gap-2 max-w-[1440px] mx-auto sm:py-[90px] py-[30px]">
       <Image
@@ -43,11 +37,7 @@ const BlogPostContent = ({ post }: BlogPostProps) => {
           })}
         </p>
       </div>
-      {lines.map((line, idx) => (
-        <p key={idx} className="leading-8  mt-4 px-[1.5rem] sm:px-0">
-          {line}
-        </p>
-      ))}
+      <p className="leading-8  mt-4 px-[1.5rem] sm:px-0">{post.content}</p>
     </div>
   );
 };
