@@ -41,8 +41,7 @@ const FetchPosts = async ({
 }) => {
   "use server";
 
-  const url = `http://localhost:4000/blogposts?page=${page}&limit=${limit}`;
-
+  const url = `http://localhost:4000/blogposts?page=${page}&limit=${limit}&sort=id&order=desc`;
   const response = await fetch(url);
   const posts = (await response.json()) as BlogResponse;
 
